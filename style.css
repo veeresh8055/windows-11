@@ -1,0 +1,153 @@
+/* *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   background-image: url('bg.jpeg'); 
+    background-size: cover; 
+    Overflow: hidden;
+    height: 100vh;
+} 
+.taskbar{
+    background-color: #f3f3f3;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    z-index: 110;
+    justify-content: center;
+}
+
+.startmenu{
+    position: absolute; 
+     bottom: 50px; 
+     bottom: -655px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease-in; 
+}
+
+.startmenu img{
+    border-radius: 8px;
+}
+
+.right{
+    justify-self: flex-end;
+    position: absolute;
+    right: 0;
+    margin: 6px 0;
+    height: 85%;
+}  
+.icons{
+    color: white;
+}  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:sans-serif;
+  font-weight: 400;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #0a2b5e 0%,
+    #183c7c 40%,
+    #2464b3 75%,
+    #338de5 100%
+  );
+}
+main {
+  min-height: 100vh;
+  position: relative;
+}
+
+#bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: -1;
+}
+
+.top {
+  top: 0;
+  right: 0;
+  height: 94.5vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(161, 21, 21, 0.678);
+  z-index: 99;
+  display: flex;
+  align-items: flex-start;
+  
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.icons {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  padding: 4px;
+  
+}
+
+.icons:hover {
+  background-color: rgba(100, 180, 246, 0.27);
+}
+.icons .img {
+  height: 70%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.icons .title {
+  height: 30%;
+  text-align: center;
+  width: 100%;
+}
+
+.icons .title p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom {
+  position: absolute;
+  height: 5.5vh;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(42, 213, 33, 0.316);
+  z-index: 99;
+}

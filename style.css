@@ -142,7 +142,7 @@ img {
   text-overflow: ellipsis;
 }
 
-.bottom {
+.taskbar {
   position: absolute;
   height: 5.5vh;
   width: 100%;

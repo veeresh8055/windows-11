@@ -79,3 +79,50 @@ if (menu && menuImg) {
     menuImg.classList.toggle('open');
   });
 }
+
+
+//draggable icons in window  using interact.js cdn 
+const icons = document.querySelectorAll(".icons");
+
+Draggable.create(".icons", {
+  type: "x,y",
+  bounds: ".top",
+  inertia: true, // Optional: requires InertiaPlugin for extra smoothness
+
+  onPress: function() {
+    // Store the exact position where the drag started
+    this.originalX = this.x;
+    this.originalY = this.y;
+    
+    // Visual feedback: bring the dragged element to the front
+    gsap.set(this.target, { zIndex: 100 });
+  },
+
+  onDragEnd: function() {
+    let hasCollision = false;
+
+    for (let icon of icons) {
+      if (icon !== this.target) {
+        // "20%" threshold is usually better for UX than "100%" 
+        // as it allows for slight overlaps before rejection
+        if (this.hitTest(icon, "20%")) {
+          hasCollision = true;
+          break;
+        }
+      }
+    }
+
+    if (hasCollision) {
+      // Smoothly animate back to the start if it hits something
+      gsap.to(this.target, {
+        x: this.originalX,
+        y: this.originalY,
+        duration: 0.5,
+        ease: "power3.out"
+      });
+    } else {
+      // Success! Reset z-index
+      gsap.set(this.target, { zIndex: 1 });
+    }
+  }
+});
